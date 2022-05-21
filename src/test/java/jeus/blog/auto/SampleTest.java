@@ -27,15 +27,16 @@ public class SampleTest {
     }
 
     @Test
-    public void showPage() {
+    public void showPage() throws InterruptedException {
         //指定したURLに遷移する
         webDriver.get("http://localhost:8080/app/v1/");
 
+        TimeUnit.SECONDS.sleep(5);
         // 最大5秒間、ページが完全に読み込まれるまで待つ
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        webDriver.findElement(By.name("menu_it")).click();
 
-//        webDriver.findElement("");
-
+        TimeUnit.SECONDS.sleep(5);
         // 検証
 //        assertThat(webDriver.getTitle(), is("さいけの技術ブログ"));
     }
@@ -46,7 +47,7 @@ public class SampleTest {
 
         // Instantiate a IEDriver class.
         WebDriver driver = new InternetExplorerDriver();
-        driver.get("http://www.google.com");
+        driver.get("http://localhost:8080/app/v1");
 
 //        driver.manage().window().maximize();
 
@@ -57,10 +58,10 @@ public class SampleTest {
 //        driver.get("https://www.google.com/");
 
         //Locating the elements using name locator for the text box
-        driver.findElement(By.name("q")).sendKeys("BrowserStack");
+        driver.findElement(By.name("q")).sendKeys("menu_it");
 
         //name locator for google search button
-        WebElement searchIcon = driver.findElement(By.name("btnK"));
+        WebElement searchIcon = driver.findElement(By.name("nav-link"));
         searchIcon.click();
 
     }
