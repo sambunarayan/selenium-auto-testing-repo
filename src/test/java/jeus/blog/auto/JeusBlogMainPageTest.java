@@ -31,7 +31,7 @@ public class JeusBlogMainPageTest {
     @Test
     public void showMainPage() throws InterruptedException {
         // Wait up to 5 seconds for the page to fully load
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 
         // Check title
         assertEquals("Jeu's Diary", webDriver.getTitle());
@@ -44,16 +44,16 @@ public class JeusBlogMainPageTest {
     @Test
     public void showITBoardPage() throws InterruptedException {
         // Wait up to 5 seconds for the page to fully load
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 
         // Move to the IT Board page.
         webDriver.findElement(By.name("menu_it")).click();
 
         // Wait up to 5 seconds for the page to fully load
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        TimeUnit.SECONDS.sleep(5);
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        TimeUnit.SECONDS.sleep(1);
 
         // Check title
-
+        assertEquals("IT 日記", webDriver.findElement(By.name("banner_value")).getText());
     }
 }
