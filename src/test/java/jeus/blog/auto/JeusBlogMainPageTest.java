@@ -55,5 +55,6 @@ public class JeusBlogMainPageTest {
 
         // Check title
         assertEquals("IT 日記", webDriver.findElement(By.name("banner_value")).getText());
+        assertNotEquals(0, webDriver.findElements(By.className("col-md-6")).size());
     }
 }
